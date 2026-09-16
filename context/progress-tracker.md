@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Prisma schema and data layer complete
+- Wire editor sidebar to project API complete
 
 ## Current Goal
 
-- Continue with the next feature unit after the Prisma-backed project data layer.
+- Continue with the next feature unit after the API-backed editor sidebar.
 
 ## Completed
 
@@ -28,6 +28,13 @@ Update this file whenever the current phase, active feature, or implementation s
 - Added the cached Prisma client singleton with Accelerate and direct PostgreSQL adapter branches.
 - Generated the Prisma client and applied the initial database migration.
 - Verified the Prisma-backed application build and migration status.
+- Added authenticated project list and create API routes.
+- Added owner-protected project rename and delete API routes.
+- Verified the API route build and lint checks.
+- Added server-side owned and shared project loading for the editor.
+- Replaced mock project mutations with the API-backed `useProjectActions` hook.
+- Added project navigation and the dynamic editor workspace route.
+- Verified the editor wiring build, lint, and diagnostics checks.
 
 ## In Progress
 
@@ -35,7 +42,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Next Up
 
-- Begin the next feature unit that builds on the Prisma project data layer.
+- Begin the next feature unit after the editor sidebar API wiring.
 
 ## Open Questions
 
@@ -55,3 +62,7 @@ Update this file whenever the current phase, active feature, or implementation s
 - The project dialogs and editor home feature is now in progress and will follow the mock-data spec without API or persistence integration.
 - The Prisma schema and data layer feature is now in progress; project data will be persisted with Prisma while Clerk remains the external identity provider.
 - The Prisma schema and data layer feature is complete; the initial migration is applied and the generated client is available under app/generated/prisma.
+- The project API route feature is now in progress and remains backend-only until the UI integration feature.
+- The project API route feature is complete; unauthenticated requests return 401 and non-owner mutations return 403.
+- The editor sidebar API wiring feature is now in progress; initial project lists will load on the server and mutations will use the project API.
+- The editor sidebar API wiring feature is complete; initial lists load server-side and create, rename, and delete use the project API.

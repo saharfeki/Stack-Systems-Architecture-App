@@ -3,28 +3,29 @@
 import { Pencil, Plus, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { Project } from "@/hooks/use-project-dialogs";
+import type { ProjectSummary } from "@/lib/projects";
 
 interface ProjectSidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  projects: Project[];
+  ownedProjects: ProjectSummary[];
+  sharedProjects: ProjectSummary[];
   onCreateProject: () => void;
-  onRenameProject: (project: Project) => void;
-  onDeleteProject: (project: Project) => void;
+  onOpenProject: (project: ProjectSummary) => void;
+  onRenameProject: (project: ProjectSummary) => void;
+  onDeleteProject: (project: ProjectSummary) => void;
 }
 
 export function ProjectSidebar({
   isOpen,
   onClose,
-  projects,
+  ownedProjects,
+  sharedProjects,
   onCreateProject,
+  onOpenProject,
   onRenameProject,
   onDeleteProject,
 }: ProjectSidebarProps) {
-  const ownedProjects = projects.filter((project) => project.owner);
-  const sharedProjects = projects.filter((project) => !project.owner);
-
   return (
     <>
       {isOpen ? (
@@ -73,10 +74,10 @@ export function ProjectSidebar({
                       key={project.id}
                       className="flex items-center justify-between gap-3 rounded-xl border border-surface-border bg-subtle/60 px-3 py-2.5"
                     >
-                      <div className="min-w-0">
+                      <button type="button" className="min-w-0 flex-1 text-left" onClick={() => onOpenProject(project)}>
                         <p className="truncate text-sm font-medium text-copy-primary">{project.name}</p>
                         <p className="truncate text-[11px] text-copy-muted">/{project.slug}</p>
-                      </div>
+                      </button>
 
                       <div className="flex items-center gap-1">
                         <Button
@@ -118,8 +119,10 @@ export function ProjectSidebar({
                       key={project.id}
                       className="rounded-xl border border-surface-border bg-subtle/60 px-3 py-2.5"
                     >
-                      <p className="truncate text-sm font-medium text-copy-primary">{project.name}</p>
-                      <p className="truncate text-[11px] text-copy-muted">/{project.slug}</p>
+                      <button type="button" className="w-full text-left" onClick={() => onOpenProject(project)}>
+                        <p className="truncate text-sm font-medium text-copy-primary">{project.name}</p>
+                        <p className="truncate text-[11px] text-copy-muted">/{project.slug}</p>
+                      </button>
                     </div>
                   ))
                 ) : (
