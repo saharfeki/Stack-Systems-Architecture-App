@@ -1,7 +1,8 @@
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center text-2xl font-medium">
-      <p>my-app</p>
-    </div>
-  );
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+
+export default async function HomePage() {
+  const { userId } = await auth();
+
+  redirect(userId ? "/editor" : "/sign-in");
 }
