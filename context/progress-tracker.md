@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Auth feature implementation
+- Project dialogs & editor home
 
 ## Current Goal
 
-- Wire Clerk into the app using the existing environment variables, protect the app by default, and provide the required sign-in/sign-up and editor redirect flows.
+- Build the `/editor` home screen and add the mock project create, rename, and delete workflows with the sidebar actions and mobile backdrop behavior specified in the feature brief.
 
 ## Completed
 
@@ -27,11 +27,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## In Progress
 
-- No active implementation work at this time.
+- Project dialogs & editor home implementation
 
 ## Next Up
 
-- Begin the next feature unit: editor canvas shell and workspace layout refinement.
+- Finish the editor home experience, wire the project dialogs, and verify there are no TypeScript or lint regressions.
 
 ## Open Questions
 
@@ -48,3 +48,4 @@ Update this file whenever the current phase, active feature, or implementation s
 
 - The required auth integration is implemented and aligned to the project specification.
 - The app now redirects unauthenticated users to sign-in and authenticated users to the editor, while preserving the existing Clerk user menu flows.
+- The project dialogs and editor home feature is now in progress and will follow the mock-data spec without API or persistence integration.
