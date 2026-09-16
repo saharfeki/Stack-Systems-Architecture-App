@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Project dialogs & editor home
+- Prisma schema and data layer complete
 
 ## Current Goal
 
-- Build the `/editor` home screen and add the mock project create, rename, and delete workflows with the sidebar actions and mobile backdrop behavior specified in the feature brief.
+- Continue with the next feature unit after the Prisma-backed project data layer.
 
 ## Completed
 
@@ -24,14 +24,18 @@ Update this file whenever the current phase, active feature, or implementation s
 - Added the sign-in and sign-up routes and the editor gate.
 - Added the Clerk UserButton to the editor navbar.
 - Verified the app builds successfully after auth integration.
+- Added the Prisma project and collaborator models with the required relations, constraints, and indexes.
+- Added the cached Prisma client singleton with Accelerate and direct PostgreSQL adapter branches.
+- Generated the Prisma client and applied the initial database migration.
+- Verified the Prisma-backed application build and migration status.
 
 ## In Progress
 
-- Project dialogs & editor home implementation
+- No active implementation work at this time.
 
 ## Next Up
 
-- Finish the editor home experience, wire the project dialogs, and verify there are no TypeScript or lint regressions.
+- Begin the next feature unit that builds on the Prisma project data layer.
 
 ## Open Questions
 
@@ -49,3 +53,5 @@ Update this file whenever the current phase, active feature, or implementation s
 - The required auth integration is implemented and aligned to the project specification.
 - The app now redirects unauthenticated users to sign-in and authenticated users to the editor, while preserving the existing Clerk user menu flows.
 - The project dialogs and editor home feature is now in progress and will follow the mock-data spec without API or persistence integration.
+- The Prisma schema and data layer feature is now in progress; project data will be persisted with Prisma while Clerk remains the external identity provider.
+- The Prisma schema and data layer feature is complete; the initial migration is applied and the generated client is available under app/generated/prisma.
